@@ -65,9 +65,9 @@ def process_image(file_path, filename, num, method=basic_align, edge=False):
     out_uint8 = np.clip(im_out * 255.0, 0, 255).astype(np.uint8)
     out_bgr = cv.cvtColor(out_uint8, cv.COLOR_RGB2BGR)
     if edge:
-        cv.imwrite(f'180-code/proj1/out/output_edge_{num}_{filename}.jpg', out_bgr)
+        cv.imwrite(f'proj1/out/output_edge_{num}_{filename}.jpg', out_bgr)
     else:
-        cv.imwrite(f'180-code/proj1/out/output_{num}_{filename}.jpg', out_bgr)
+        cv.imwrite(f'proj1/out/output_{num}_{filename}.jpg', out_bgr)
 
 def anti_aliasing(ch): #2d array, 1 color channel
     return gaussian_filter(ch, sigma = 1)
@@ -103,17 +103,17 @@ def pyramid_align(ch_anchor, ch, ax, edge):
     aligned = np.roll(ch, total_delta, axis=ax)
     return aligned, total_delta, best_match
 
-# jpg = ['tobolsk', 'cathedral', 'monastery']
-# for i in range(len(jpg)):
-#     process_image(f'proj1/CS180_fa2026_proj1_data/{jpg[i]}.jpg', jpg[i], i, method=basic_align, edge=True)
+jpg = ['tobolsk', 'cathedral', 'monastery']
+for i in range(len(jpg)):
+    process_image(f'proj1/input/{jpg[i]}.jpg', jpg[i], i, method=basic_align, edge=True)
 
 extra = ['ex1', 'ex2', 'ex3']
 for i in range(len(extra)):
-    process_image(f'180-code/proj1/input/{extra[i]}.jpg', extra[i], i, method=pyramid_align, edge=False)
+    process_image(f'proj1/input/{extra[i]}.jpg', extra[i], i, method=pyramid_align, edge=False)
 
-# tif = ['emir', 'self_portrait', 'melons', 'church', 'harvesters', 'icon', 'ilemselga', 'religous_painting', 'siren', 'three_generations', 'wharf']
-# for i in range(len(tif)):
-#     process_image(f'proj1/CS180_fa2026_proj1_data/{tif[i]}.tif', tif[i], i, method=pyramid_align, edge=True)
+tif = ['emir', 'self_portrait', 'melons', 'church', 'harvesters', 'icon', 'ilemselga', 'religous_painting', 'siren', 'three_generations', 'wharf']
+for i in range(len(tif)):
+    process_image(f'proj1/input/{tif[i]}.tif', tif[i], i, method=pyramid_align, edge=True)
 
 
     
