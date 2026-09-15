@@ -9,4 +9,4 @@ For example images:
 
 Download these and save to "input" folder and rename to ex1.jpg, ex2.jpg, ex3.jpg
 
-Then run "colorize_skel.py"
+Then run "main.py"
