@@ -1,7 +1,4 @@
 *.DS_Store
 *.tif
-*.jpg
-*.jpeg
-*.png
-*.webp
+out/
 __pycache__
